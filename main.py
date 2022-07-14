@@ -1,16 +1,32 @@
 # This is a sample Python script.
-
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+app = Flask(__name__)
+Bootstrap(app)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.route("/")
+def hello():
+    return render_template('login.html')
 
+@app.route("/index")
+def index():
+    return render_template('home.html')
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Este e meu primeiro programa em python que subi para o github no PyCharm')
+@app.route("/login")
+def login():
+    return render_template('login.html')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+@app.route("/logout")
+def logout():
+    return render_template('logout.html')
+
+@app.route("/home")
+def home():
+    return render_template('home.html')
+
+if __name__ == "__main__":
+    app.run()
+    Bootstrap(app)
