@@ -1,4 +1,2 @@
 flask
-flask_session
-render_template
 gunicorn
